@@ -2,7 +2,7 @@
 
 
 Player::Player(sf::Vector2f pos, sf::Vector2f size, float speed, sf::Texture tex)
-	: Entity(pos, size), m_drawShape(size), m_speed(speed), walking_frame(0), frame_tick(0), walking_dir(0)
+: Entity(pos, size), m_drawShape(size), m_speed(speed), walking_frame(0), frame_tick(0), walking_dir(0)
 {
 	player_tex = tex;
 	sprite.setTexture(player_tex);

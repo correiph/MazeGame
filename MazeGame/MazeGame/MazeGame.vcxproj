@@ -81,12 +81,12 @@
   <ItemGroup>
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="Health.cpp" />
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MazeMain.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="SpiderEnemy.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileSet.cpp" />
     <ClCompile Include="tinyxml2.cpp" />
@@ -94,11 +94,11 @@
   <ItemGroup>
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="Health.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="SpiderEnemy.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileSet.h" />
     <ClInclude Include="tinyxml2.h" />
@@ -119,6 +119,9 @@
     <None Include="Assets\Levels\level3map.tmx" />
     <None Include="Assets\Levels\Level_1_Test.tmx" />
     <None Include="Assets\Levels\Level_2_Test.tmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Assets\Fonts\Ambrosia.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,10 +4,23 @@
 #include <iostream>
 Level::Level()
 {
+	this->font = new sf::Font();
+	this->font->loadFromFile("Assets/Fonts/Ambrosia.ttf");
+	this->m_health = new Health(*font, 32U);
+
 	player_texture.loadFromFile("Assets/Sprites/Player_Sprite_Sheet_32_32.png");
+	enemy_texture.loadFromFile("Assets/Sprites/player-sized-pumpkin.png");
+
+	for (int i = 0; i < 5; i++) {
+		m_enemies.push_back(new Enemy(sf::Vector2f(i * 32, i * 32), sf::Vector2f(32, 32), 50.0f, enemy_texture));
+	}
+	
+	
 	m_player = new Player(sf::Vector2f(0,0), sf::Vector2f(32, 32), 100.0f, player_texture);
-	//m_player->sprite.
+
 	m.loadFromFile("Assets/Levels/level1.tmx");
+
+	//m_player->sprite.
 	//player_texture.loadFromFile("playersprite.png");
 	//m_player->sprite.setTexture();
 	//m_player->sprite.
@@ -18,6 +31,9 @@ Level::~Level()
 {
 }
 void Level::Update(float delta){
+
+	// <---------- Player Animation / Input -----------
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
 		m_player->SetDirection(sf::Vector2f(-1, -1));
 		m_player->SetAnimDirection(Player::PLAYER_DIRECTION::UPLEFT);
@@ -25,6 +41,7 @@ void Level::Update(float delta){
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
 		m_player->SetDirection(sf::Vector2f(1, -1));
 		m_player->SetAnimDirection(Player::PLAYER_DIRECTION::UPRIGHT);
+
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) && sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
 		m_player->SetDirection(sf::Vector2f(-1, 1));
@@ -83,6 +100,9 @@ void Level::Update(float delta){
 		m_player->SetDirection(dir);
 		m_player->Move(delta);
 	}
+
+	// ---------- Player Animation / Input ----------->
+
 	std::vector<Layer>* map_layers = m.GetLayers();
 	for each (Layer l in *map_layers)
 	{

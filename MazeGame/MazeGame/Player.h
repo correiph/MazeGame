@@ -24,6 +24,7 @@ public:
 
 private:
 	int walking_frame, walking_dir, frame_tick;
+	int health;
 	sf::Texture player_tex;
 	sf::RectangleShape m_drawShape;
 	sf::Vector2f m_direction;
